@@ -1,10 +1,22 @@
 #include<bits/stdc++.h>
-#include<windows.h>
 #include<math.h>
+#include<cstdint>
+
+// Cross-platform compatibility
+#ifdef _WIN32
+    #include<windows.h>
+    #define CLEAR_SCREEN "cls"
+    #define SLEEP(ms) Sleep(ms)
+#else
+    #include<unistd.h>
+    #define CLEAR_SCREEN "clear"
+    #define SLEEP(ms) usleep((ms) * 1000)
+#endif
+
 using namespace std;
 
 #define f float
-#define it __int16
+#define it int16_t
 #define rg register
 #define ct cosTHETA
 #define st sinTHETA
@@ -56,15 +68,15 @@ inline void update(){
             if(L>0){
                 if(22 > yp && yp > 0 && xp > 0 && 40 > xp && ooz > zbuf[yp][xp]){
                     zbuf[yp][xp] = ooz;
-                    display[yp][xp] = ".,-~:;=!*#$@"[(__int8)(L*8)];
+                    display[yp][xp] = ".,-~:;=!*#$@"[(int8_t)(L*8)];
                 }
             }
         }
     }
-    system("CLS");
+    system(CLEAR_SCREEN);
     string s;
-    for (rg __int8 j = 0; j < 22; j++) {
-        for (rg __int8 i = 0; i < 40; i++) {
+    for (rg int8_t j = 0; j < 22; j++) {
+        for (rg int8_t i = 0; i < 40; i++) {
           s += display[j][i];
         }
         s += '\n';
@@ -80,6 +92,6 @@ int main() {
     
     while(1){
         update();
-        Sleep(10);
+        SLEEP(10);
     }
 }
