@@ -1,6 +1,10 @@
 #include<bits/stdc++.h>
 #include<math.h>
-#include<unistd.h>  // for usleep instead of Sleep on Linux
+#ifdef _WIN32
+    #include<windows.h>  // for Sleep on Windows
+#else
+    #include<unistd.h>   // for usleep on Linux
+#endif
 using namespace std;
 
 #define f float
