@@ -17,6 +17,12 @@ namespace ASCII3D {
         void displayMenu();
         void handleInput();
         void displayShapeInfo();
+        void runAnimation();
+        
+        // Shape rendering methods
+        std::string renderCube(int frame);
+        std::string renderSphere(int frame);
+        std::string renderTeapot(int frame);
         
     public:
         UserInterface();
